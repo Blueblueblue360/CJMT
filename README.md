@@ -1,4 +1,5 @@
 # CJMT
+
 ###linux 计划任务可视化管理工具(cron jobs management tool)
 
 **jtimer使用了master-worker进程模型，能够实现无阻塞执行任务。**
@@ -6,8 +7,8 @@
 **时间表达使用了cron表达式，可精确到秒级，方便好用(比crontab多一位)**
 
 ## 声明
-此项目在https://gitee.com/itzhoujun/JTimer基础上进行了升级，修复了原php版本的bug(包括定时器延时误差)，目前在单一服务器上测试数月，稳定精准运行。
-感谢原作者https://gitee.com/itzhoujun的创造
+此项目在https://gitee.com/itzhoujun/JTimer 基础上进行了升级，修复了原php版本的bug(包括定时器延时误差)，目前在单一服务器上测试数月，稳定精准运行。
+感谢原作者https://gitee.com/itzhoujun 的创造
 
 ## 安装与使用
 
@@ -91,6 +92,4 @@ Q1：cron任务定时执行是如何实现的？
 ![输入图片说明](https://gitee.com/uploads/images/2018/0403/114312_49078c1a_369962.png "TIM截图20180403114215.png")
 
 # 注意
-1. 本项目只在测试环境运行过，如果要用于生产环境，请自行进行严格的测试后再投入使用。如有问题，自行负责。
-2. 定时器每秒有零点几毫秒的误差，几个小时累计下来可能有1秒的误差。因此要求时间非常精准的业务任务请不要使用本系统（JAVA版无此问题）。
-3. 由于任务的执行使用了task进程池的方式，请根据同一时刻任务最多数量来自行决定task进程数（默认8个），例如你一共50个任务，在某个时间点，可能有10个任务同时运行，那么可以将task进程数设置为10。否则可能导致任务排队。如果任务即使排队也不影响你的业务，那么无视这一条。修改task默认进程数在application/timer/command/JTimerCommand.php，也可以在启动时指定，如php think jtimer start -d -t 10
+1. 由于任务的执行使用了task进程池的方式，请根据同一时刻任务最多数量来自行决定task进程数（默认8个），例如你一共50个任务，在某个时间点，可能有10个任务同时运行，那么可以将task进程数设置为10。否则可能导致任务排队。如果任务即使排队也不影响你的业务，那么无视这一条。修改task默认进程数在application/timer/command/JTimerCommand.php，也可以在启动时指定，如php think jtimer start -d -t 10

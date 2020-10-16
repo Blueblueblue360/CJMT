@@ -1,10 +1,14 @@
 # CJMT
 
-*linux 计划任务可视化管理工具(cron jobs management tool)*
+*Linux 计划任务可视化管理工具(***C***ron ***J***obs ***M***anagement ***T***ool)*
+
+**时间表达使用cron表达式，可精确到秒级，方便好用(比crontab多一位)**
+
+**基于thinkphp框架，php-swoole扩展。具有开箱即用，自定义功能的特点**
+
+**此项目的开发正火热进行中，欢迎各位参与并给指导建议，感激**
 
 **jtimer使用了master-worker进程模型，能够实现无阻塞执行任务。**
-
-**时间表达使用了cron表达式，可精确到秒级，方便好用(比crontab多一位)**
 
 ## 声明
 此项目在https://gitee.com/itzhoujun/JTimer 基础上进行了升级，修复了原php版本的bug(包括定时器延时误差)，目前在单一服务器上测试数月，稳定精准运行。
@@ -18,8 +22,7 @@
 3. 安装posix扩展
 4. 安装sysvmsg扩展
 5. 安装swoole扩展
-
-ps:仅支持Linux
+6. 服务器环境有web服务器(apache,nginx等),MySQL数据库(或者MariaDB)
 
 ## 后台部署
 

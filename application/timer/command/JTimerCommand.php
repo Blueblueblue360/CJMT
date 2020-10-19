@@ -57,13 +57,13 @@ class JTimerCommand extends Command
         $worker->onWorkerStart = function(Worker $worker){
             TaskManager::clear();
             if($worker->worker_name == 'db-worker'){
-
                 pcntl_signal(SIGINT, function (){
-                    \Swoole\Timer::clearAll();
+                    // 当收到终止信号时，清除当前进程内的定时器
+                    if (!is_null($GLOBALS['timer_id']))
+                        swoole_timer_clear($GLOBALS['timer_id']);
                 }, false);
-                echo "db worker timer set\n";
                 // 替代timer方案
-                swoole_timer_tick(30000, function() use ($worker) {
+                $worker->timer_id = swoole_timer_tick(30000, function() use ($worker) {
                     //将数据库中的任务写到缓存中
                     $list = CronTaskModel::getById('status',1);
                     if(TaskManager::loadTask($list)){
@@ -81,15 +81,20 @@ class JTimerCommand extends Command
 
                     pcntl_signal_dispatch();
                 });
+                $GLOBALS['timer_id'] = $worker->timer_id;
+                if (!is_null($GLOBALS['timer_id'])){
+                    echo "db-worker 设置成功!\n";
+                }
             } elseif ($worker->worker_name == 'timer-worker'){
                 pcntl_signal(SIGINT, function (){
-                    \Swoole\Timer::clearAll();
+                    // 当收到终止信号时，清除当前进程内的定时器
+                    if (!is_null($GLOBALS['timer_id']))
+                        swoole_timer_clear($GLOBALS['timer_id']);
                 }, false);
-                echo "time worker set\n";
                 $worker->wheel = new TimingWheel();
                 $worker->wheel::$now_time = time();
 //                TaskManager::isChange(true); // 目前感觉这句没有意义
-                swoole_timer_tick(1000, function() use ($worker) {
+                $worker->timer_id = swoole_timer_tick(1000, function() use ($worker) {
                     $worker->wheel::$now_time++;
                     $now_time = $worker->wheel::$now_time;
                     if(TaskManager::isChange()){ // 如果任务有变化，取出任务添加到时间轮片
@@ -119,7 +124,10 @@ class JTimerCommand extends Command
 
                     pcntl_signal_dispatch();
                 });
-
+                $GLOBALS['timer_id'] = $worker->timer_id;
+                if (!is_null($GLOBALS['timer_id'])){
+                    echo "timer-worker 设置成功!\n";
+                }
             }
 
         };

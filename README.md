@@ -1,12 +1,14 @@
 # CJMT
 
-*Linux 计划任务可视化管理工具(***C***ron ***J***obs ***M***anagement ***T***ool)*
+*Linux 计划任务 可视化 管理工具(***C***ron ***J***obs ***M***anagement ***T***ool)*
 
-**时间表达使用cron表达式，可精确到秒级，方便好用(比crontab多一位)**
+**运维人员无需看懂代码，开箱即用;开发人员可自定义功能(目前基本功能都已满足)**
 
-**基于thinkphp框架，php-swoole扩展。具有开箱即用，自定义功能的特点**
+**时间表达使用cron表达式，可精确到秒级，方便好用(比crontab多一位)。**
 
-**此项目的开发正火热进行中，欢迎各位参与并给指导建议，感激**
+**基于thinkphp框架，php-swoole扩展。具有开箱即用，自定义功能的特点。**
+
+**此项目的开发正火热进行中，欢迎各位参与并给指导建议，感激。**
 
 **jtimer使用了master-worker进程模型，能够实现无阻塞执行任务。**
 
@@ -17,16 +19,14 @@
 ## 安装与使用
 
 ### 项目要求：
-1. php.ini开放exec方法
-2. 安装pcntl扩展
-3. 安装posix扩展
-4. 安装sysvmsg扩展
-5. 安装swoole扩展
-6. 服务器环境有web服务器(apache,nginx等),MySQL数据库(或者MariaDB)
+1. 服务器符合LAMP环境要求
+2. php.ini开放exec方法
+3. php需要安装pcntl扩展,posix扩展,sysvmsg扩展,swoole扩展
+4. php版本5.4+,swoole版本1.0+
 
 ## 后台部署
 
-项目后台基于thinkphp5+layui实现，部署方法参考thinkphp5官方文档，此处不再阐述。
+项目后台基于thinkphp5.0+layui实现，部署方法参考thinkphp5.0官方文档，此处不再阐述。
 
 数据库文件位于项目根目录 jtimer.sql，请自行导入
 

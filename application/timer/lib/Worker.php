@@ -40,6 +40,8 @@ class Worker
     public $onWorkerStart = null;
     public $onTask = null;
 
+    public $timer_id; // 设置的定时器id
+
     const STATUS_RUNNING = 1;
     const STATUS_SHUTDOWN = 2;
 
@@ -292,7 +294,8 @@ class Worker
                 self::$workers[$pid] = $worker_name;
             }
         } elseif ($pid == 0) {
-            \Swoole\Timer::clearAll();
+            if (!is_null($runner->timer_id))
+                swoole_timer_clear($runner->timer_id);
             $runner->worker_name = $worker_name;
             if ($worker_name != 'task')
                 echo 'jtimer worker start ', $worker_name, "\n";

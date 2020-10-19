@@ -3,12 +3,10 @@ Navicat MySQL Data Transfer
 
 Source Server         : vagrant
 Source Server Version : 50711
-Source Host           : 192.168.33.10:3306
 Source Database       : jtimer
 
 Target Server Type    : MYSQL
 Target Server Version : 50711
-File Encoding         : 65001
 
 Date: 2018-04-03 10:49:14
 */

@@ -20,7 +20,7 @@ use think\Controller;
 use think\Db;
 use think\Request;
 
-class AdminBaseController extends Controller
+class AdminBase extends Controller
 {
 
     use LayuiTableSet;

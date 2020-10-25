@@ -3,7 +3,7 @@ namespace app\admin\controller;
 
 use think\Request;
 
-class IndexController extends AdminBaseController
+class Index extends AdminBase
 {
     public function index()
     {

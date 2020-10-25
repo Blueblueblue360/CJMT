@@ -13,7 +13,7 @@ use think\Db;
 use think\Model;
 use app\admin\model\CateModel;
 
-class CronTaskModel extends Model
+class CronTask extends Model
 {
     private static $instance;
     private function __clone(){} //禁止被克隆

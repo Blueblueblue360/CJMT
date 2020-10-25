@@ -12,7 +12,7 @@ namespace app\admin\model;
 use think\Cache;
 use think\Model;
 
-class CronTaskLogModel extends Model
+class CronTaskLog extends Model
 {
     private static $instance;
     const CRONTAB_LOG = 'cmd_execute_';

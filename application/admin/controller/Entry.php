@@ -13,11 +13,10 @@ use think\Controller;
 use think\Db;
 use think\Request;
 
-class PublicController extends Controller
+class Entry extends Controller
 {
-
-    public function login(){
-
+    public function login()
+    {
         $request = Request::instance();
         $is_validate = getSetting('show_validate_code');
         if($request->isGet()){
@@ -42,18 +41,16 @@ class PublicController extends Controller
             ->where('username',$request->post('username'))
             ->find();
 
-
         $password = encryPassword($request->post('password'),$user['salt']);
         if(empty($user) || $password != $user['password']){
             $this->error('用户名或密码不正确');
         }
         session('admin_user',$user);
         $this->success('登录成功',url('index/index'));
-
     }
 
     public function logout(){
         session('admin_user',null);
-        $this->redirect(url('login'));
+        $this->redirect('login');
     }
 }

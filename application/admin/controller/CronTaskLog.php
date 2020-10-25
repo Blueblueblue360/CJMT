@@ -8,7 +8,7 @@ use app\admin\model\CronTaskModel;
 use think\Request;
 use app\admin\model\CateModel;
 
-class CronTaskLogController extends AdminBaseController
+class CronTaskLog extends AdminBase
 {
     public function index()
     {

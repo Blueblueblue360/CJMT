@@ -22,10 +22,7 @@ use think\Request;
 
 class AdminBase extends Controller
 {
-
     use LayuiTableSet;
-
-
 
     public function __construct(Request $request = null)
     {
@@ -36,17 +33,16 @@ class AdminBase extends Controller
         if($ips){
             $ip = $request->ip();
             if(!in_array($ip,explode(',',$ips))){
-                $this->error('无权限访问',url('public/login'));
+                $this->error('无权限访问',url('entry/login'));
             }
         }
-
 
         //登录判断
         $admin_user = $this->getCurrentUser();
         if(empty($admin_user)){
-            $this->redirect(url('public/login'));
+            $this->redirect('entry/login');
         }
-        $this->assign('admin_user',$admin_user);
+        $this->assign('admin_user', $admin_user);
     }
 
     public function index(){

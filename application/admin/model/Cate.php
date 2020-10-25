@@ -4,7 +4,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class CateModel extends Model
+class Cate extends Model
 {
     private static $instance;
     private function __clone(){} //禁止被克隆

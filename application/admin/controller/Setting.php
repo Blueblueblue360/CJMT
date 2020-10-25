@@ -12,7 +12,7 @@ namespace app\admin\controller;
 use think\Db;
 use think\Request;
 
-class SettingController extends AdminBaseController
+class Setting extends AdminBase
 {
 
     public function index()

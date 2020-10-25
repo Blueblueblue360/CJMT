@@ -15,7 +15,7 @@ use think\Exception;
 use think\Request;
 use app\admin\model\CateModel;
 
-class CronTaskController extends AdminBaseController
+class CronTask extends AdminBase
 {
 
     public function lists($model = '',$return = false)

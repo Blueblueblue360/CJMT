@@ -6,7 +6,7 @@ use think\Request;
 use app\admin\model\CateModel;
 use app\admin\model\CronTaskModel;
 
-class CateController extends AdminBaseController
+class Cate extends AdminBase
 {
 
     /**

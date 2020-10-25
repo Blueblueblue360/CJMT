@@ -12,7 +12,7 @@ namespace app\admin\controller;
 use think\Db;
 use think\Request;
 
-class UserController extends AdminBaseController
+class User extends AdminBase
 {
 
     public function alterPwd(Request $request){

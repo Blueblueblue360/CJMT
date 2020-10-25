@@ -52,7 +52,7 @@ function openPage(url, appId, appname, refresh){
 
         $appframe.load(function () {
             var srcLoaded = $appframe.get(0).contentWindow.location.href;
-            if (srcLoaded.indexOf('admin/public/login') >= 0) {
+            if (srcLoaded.indexOf('admin/entry/login') >= 0) {
                 window.location.reload(true);
             }
         });
@@ -65,7 +65,7 @@ function openPage(url, appId, appname, refresh){
             $appframe.attr('src',url);
             $appframe.load(function () {
                 var srcLoaded = $appframe.get(0).contentWindow.location.href;
-                if (srcLoaded.indexOf('admin/public/login') >= 0) {
+                if (srcLoaded.indexOf('admin/entry/login') >= 0) {
                     window.location.reload(true);
                 }
             });

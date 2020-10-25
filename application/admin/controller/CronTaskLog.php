@@ -3,10 +3,10 @@
 namespace app\admin\controller;
 
 
-use app\admin\model\CronTaskLogModel;
-use app\admin\model\CronTaskModel;
+use app\admin\model\CronTaskLog as CronTaskLogModel;
+use app\admin\model\CronTask as CronTaskModel;
 use think\Request;
-use app\admin\model\CateModel;
+use app\admin\model\Cate as CateModel;
 
 class CronTaskLog extends AdminBase
 {

@@ -3,8 +3,8 @@
 namespace app\admin\controller;
 
 use think\Request;
-use app\admin\model\CateModel;
-use app\admin\model\CronTaskModel;
+use app\admin\model\Cate as CateModel;
+use app\admin\model\CronTask as CronTaskModel;
 
 class Cate extends AdminBase
 {
